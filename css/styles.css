@@ -74,6 +74,15 @@ main {
     color: #666;
 }
 
+.project {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: left;
+}
+
 footer {
     background-color: #003366;
     color: white;
