@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const projectList = document.getElementById("project-list");
     const repos = [
         "Bitcoin-Realized-Volatility-Analysis",
-        "Chess_Analytics"  // Replace with your actual repository names
+        "Chess_Analytics"
     ];
     const username = "LucasChaka"; // Replace with your GitHub username
 
@@ -12,7 +12,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 Accept: "application/vnd.github.v3.html+json"
             }
         })
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch README for ${repo}`);
+            }
+            return response.text();
+        })
         .then(data => {
             const projectDiv = document.createElement("div");
             projectDiv.className = "project";
@@ -21,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => {
             console.error('Error fetching README:', error);
-        });
-    });
-});
+            const errorDiv = document.createElement("div");
+            errorDiv.className = "error";
+            errorDiv.innerHTML = `<h2>${repo}</h2><p>Error fetching README: ${error.message}</p>`;
+ 
