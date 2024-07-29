@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const projectList = document.getElementById("project-list");
     const repos = [
-        "repo1",
-        "repo2",
-        "repo3"  // Replace with your actual repository names
+        "Bitcoin-Realized-Volatility-Analysis",
+        "Chess_Analytics"  // Replace with your actual repository names
     ];
     const username = "LucasChaka"; // Replace with your GitHub username
 
